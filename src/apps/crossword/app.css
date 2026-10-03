@@ -1,0 +1,156 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 40px 20px 30px;
+}
+
+.header-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.header-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.header-icon {
+  font-size: 1.5rem;
+  color: var(--gold);
+}
+
+.title {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 4rem;
+  color: var(--ink-black);
+  letter-spacing: 0.3em;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 0 var(--gold-light), 4px 4px 0 rgba(0,0,0,0.05);
+  background: linear-gradient(180deg, var(--ink-black) 40%, #4a4a4a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--jade);
+  font-size: 1.1rem;
+  letter-spacing: 0.8em;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-left: 0.8em;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+  width: 100%;
+}
+
+.game-area {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Loading & Welcome */
+.loading,
+.welcome {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 40px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px var(--shadow);
+  border: 1px solid var(--paper-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--vermillion), var(--gold), var(--jade));
+}
+
+.loading-icon,
+.welcome-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.welcome h2 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.8rem;
+  color: var(--ink-black);
+  margin-bottom: 12px;
+}
+
+.welcome p {
+  color: var(--jade);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.welcome-hint {
+  font-size: 0.95rem !important;
+  opacity: 0.7;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--jade);
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .game-area {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    letter-spacing: 0.2em;
+  }
+
+  .header-decoration {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .loading,
+  .welcome {
+    min-width: auto;
+    padding: 60px 30px;
+  }
+}
+

@@ -1,0 +1,179 @@
+.crossword-container {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px var(--shadow);
+  border: 1px solid var(--paper-dark);
+  background-image: 
+    linear-gradient(rgba(201, 168, 108, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 108, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  --cell-size: 56px;
+}
+
+.crossword-grid {
+  display: grid;
+  gap: 0;
+  background: transparent;
+  padding: 0;
+  border: 1px solid var(--gold-light);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: white;
+  transition: var(--transition);
+  border: 1px solid var(--gold-light);
+}
+
+/* 移除不再需要的类 */
+.grid-row {
+  display: contents;
+}
+
+.cell-empty {
+  background: transparent;
+  border: none !important;
+  box-shadow: none !important;
+  pointer-events: none;
+}
+
+.cell-given {
+  background: var(--paper-cream);
+  color: var(--ink-black);
+}
+
+.cell-input {
+  background: white;
+}
+
+.cell-input:hover {
+  background: #fffdfa;
+  z-index: 1;
+}
+
+.cell-selected {
+  background: #fff9f0;
+  box-shadow: inset 0 0 0 2px var(--vermillion) !important;
+  z-index: 2;
+}
+
+.cell-correct {
+  background: var(--success-bg);
+}
+
+.cell-correct .cell-input-field {
+  color: var(--success);
+  font-weight: bold;
+}
+
+.cell-wrong {
+  background: var(--error-bg);
+  animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.cell-wrong .cell-input-field {
+  color: var(--error);
+}
+
+.cell-hint {
+  background: #fffdeb;
+}
+
+.cell-hint .cell-input-field {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.cell-revealed {
+  background: #f5f5f5;
+  color: #888;
+}
+
+.cell-number {
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  font-size: 0.7rem;
+  font-family: 'Noto Serif SC', serif;
+  color: var(--vermillion);
+  font-weight: 500;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.cell-char {
+  color: var(--ink-black);
+}
+
+.cell-input-field {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.6rem;
+  color: var(--ink-black);
+  outline: none;
+  caret-color: var(--vermillion);
+  padding: 0;
+}
+
+.cell-input-field:disabled {
+  color: var(--ink-black);
+  cursor: default;
+}
+
+.cell-correct .cell-input-field {
+  color: var(--success);
+}
+
+.cell-wrong .cell-input-field {
+  color: var(--error);
+}
+
+.cell-hint .cell-input-field {
+  color: var(--gold);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .crossword-container {
+    padding: 15px;
+    --cell-size: 42px;
+  }
+
+  .cell {
+    font-size: 1.3rem;
+  }
+
+  .cell-input-field {
+    font-size: 1.3rem;
+  }
+
+  .cell-number {
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .crossword-container {
+    --cell-size: 32px;
+  }
+  .cell {
+    font-size: 1.1rem;
+  }
+
+  .cell-input-field {
+    font-size: 1.1rem;
+  }
+}
+

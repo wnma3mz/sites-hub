@@ -1,0 +1,126 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: #0b0d12;
+  color: #e2e8f0;
+  font-family: Inter, 'PingFang SC', 'Noto Serif SC', system-ui, sans-serif;
+}
+
+/* hub 顶部导航 */
+.hub-nav {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 44px;
+  padding: 0 0.75rem;
+  background: rgba(8, 10, 15, 0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+}
+
+.hub-brand {
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #c3a343;
+  text-decoration: none;
+  margin-right: 0.75rem;
+}
+
+.hub-link {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  color: rgba(226, 232, 240, 0.65);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.hub-link:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.hub-link.active {
+  color: #0b0d12;
+  background: #c3a343;
+}
+
+/*
+ * app 容器。translateZ(0) 让它成为内部 position:fixed 元素的包含块，
+ * 这样各 app 里 fixed 的头部/抽屉/弹窗会以 app 区域为基准，
+ * 不会盖住 hub 导航条。
+ */
+.hub-page {
+  transform: translateZ(0);
+}
+
+.hub-home {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+.hub-home h1 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.hub-home > p {
+  color: rgba(226, 232, 240, 0.55);
+  margin: 0 0 2.5rem;
+}
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.hub-card {
+  display: block;
+  padding: 1.5rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.hub-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.hub-card-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.hub-card h2 {
+  margin: 0.9rem 0 0.4rem;
+  font-size: 1.15rem;
+}
+
+.hub-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.5);
+  line-height: 1.6;
+}

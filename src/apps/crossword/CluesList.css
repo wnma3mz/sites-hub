@@ -1,0 +1,160 @@
+.clues-container {
+  background: white;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px var(--shadow);
+  border: 1px solid var(--paper-dark);
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.clues-header {
+  border-bottom: 2px dashed var(--gold-light);
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+}
+
+.clues-tip {
+  font-size: 0.85rem;
+  color: var(--jade);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.8;
+}
+
+.clues-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.clues-title {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.4rem;
+  color: var(--ink-black);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--paper-dark);
+}
+
+.clues-icon {
+  color: var(--vermillion);
+  font-size: 1.1rem;
+}
+
+.clues-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.clue-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  transition: var(--transition);
+  background: var(--paper-cream);
+  border: 1px solid transparent;
+  align-items: flex-start;
+}
+
+.clue-item:hover {
+  background: white;
+  border-color: var(--gold-light);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.clue-revealed {
+  background: var(--success-bg);
+  border-color: rgba(45, 122, 74, 0.1);
+}
+
+.clue-number {
+  min-width: 32px;
+  height: 32px;
+  background: var(--paper-dark);
+  color: var(--jade);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.clue-number:hover {
+  background: var(--vermillion);
+  color: white;
+  transform: scale(1.1);
+}
+
+.clue-revealed .clue-number {
+  background: var(--vermillion);
+  color: white;
+}
+
+.clue-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.clue-text {
+  font-size: 0.95rem;
+  color: var(--ink-black);
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.clue-hidden {
+  font-size: 0.9rem;
+  color: var(--jade);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.clue-length {
+  font-size: 0.8rem;
+  color: var(--jade);
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+.clues-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.clues-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.clues-container::-webkit-scrollbar-thumb {
+  background: var(--gold-light);
+  border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  .clues-container {
+    height: auto;
+    max-height: 400px;
+  }
+}
